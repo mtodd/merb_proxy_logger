@@ -56,11 +56,9 @@ module MerbProxyLogger
     end
   end
   
-  module Loggers
-    
-    autoload :Loggers, 'lib/merb_proxy_logger/loggers'
-    
-  end
+  # Autoloaded modules
+  autoload :Loggers, 'lib/merb_proxy_logger/loggers'
+  autoload :Kernel, 'lib/merb_proxy_logger/kernel'
   
 end
 
@@ -72,3 +70,7 @@ end
 
 # Sets the Merb::Logger to the LoggerProxy
 Merb::Logger = MerbProxyLogger
+
+# Include MerbProxyLogger's extensions
+Kernel.send(:include, MerbProxyLogger::Kernel)
+MerbProxyLogger::Loggers.load(:Logger)

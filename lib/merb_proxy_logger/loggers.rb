@@ -7,6 +7,16 @@ module MerbProxyLogger
   # 
   module Loggers
     
+    class << self
+      
+      # Simply queries for the autoloaded class to get it to load.
+      # 
+      def load(klass)
+        MerbProxyLogger::Loggers.const_get(klass)
+      end
+      
+    end
+    
     autoload :Logger, 'lib/merb_proxy_logger/loggers/logger'
     
   end
