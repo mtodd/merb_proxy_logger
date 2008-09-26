@@ -17,7 +17,7 @@ module MerbProxyLogger
       
     end
     
-    autoload :Logger, 'lib/merb_proxy_logger/loggers/logger'
+    autoload :Logger, 'merb_proxy_logger/loggers/logger'
     
   end
   
