@@ -10,10 +10,27 @@ as a dependency in <code>config/init.rb</code>:
 <pre><code>
   # ==== Dependencies
   
-  dependency "merb_proxy_logger"
+  load_dependency "merb_proxy_logger"
 </code></pre>
 
-TODO: document (as it gets decided)
+*NOTE:* Unlike most other dependencies, @load_dependency@ is required for the
+@use_logger@ method to be available.
+
+Then further in:
+
+<pre><code>
+  use_logger :Logger do |logger, (file, level, delimiter, auto_flush)|
+    logger = logger.new(STDOUT) # file, level, delimiter, auto_flush
+    logger.formatter = proc{|s,t,p,m|"%5s [%s] (%s : %s) %s :: %s\n" % [s, t.strftime("%Y-%m-%d %H:%M:%S"), $$, Thread.current.object_id, p, m]}
+    logger.level = Logger.const_get(level.to_s.upcase.to_sym)
+    logger.progname = "ScoutMerb"
+    logger
+  end
+</code></pre>
+
+*NOTE:* It's a little repetitive and hopefully this will be minimized in the
+future, but for now it's necessary. Also, make sure you return the logger
+object fully initialized.
 
 h2. Requirements
 
