@@ -8,10 +8,13 @@ Gem::Specification.new do |s|
   s.description = "Injects a proxy allowing the use of custom logging libraries and settings."
   s.has_rdoc = true
   s.authors  = ["Matt Todd"]
-  s.files    = ["init.rb",
+  s.files    = [
     "README.textile",
     "Rakefile",
     "merb_proxy_logger.gemspec",
+    "lib/merb_proxy_logger/kernel.rb",
+    "lib/merb_proxy_logger/loggers/logger.rb",
+    "lib/merb_proxy_logger/loggers.rb",
     "lib/merb_proxy_logger.rb"
   ]
   s.rdoc_options = ["--main", "README"]

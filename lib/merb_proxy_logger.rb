@@ -57,8 +57,8 @@ module MerbProxyLogger
   end
   
   # Autoloaded modules
-  autoload :Loggers, 'lib/merb_proxy_logger/loggers'
-  autoload :Kernel, 'lib/merb_proxy_logger/kernel'
+  autoload :Loggers, 'merb_proxy_logger/loggers'
+  autoload :Kernel, 'merb_proxy_logger/kernel'
   
 end
 
