@@ -51,6 +51,12 @@ class MerbProxyLogger
     # lib/merb_proxy_logger/loggers/logger.rb.
     # 
     def setup(logger, &initializer)
+      logger = case logger
+      when Symbol
+        Loggers.load(logger)
+      else
+        logger
+      end
       self.logger = logger
       self.initializer = initializer
     end
