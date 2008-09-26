@@ -2,7 +2,7 @@ raise LoadError.new("Missing dependency Merb::Plugins") unless defined?(Merb::Pl
 
 $:.unshift(File.expand_path(File.dirname(__FILE__)))
 
-module MerbProxyLogger
+class MerbProxyLogger
   
   VERSION = [0,1,0]
   
