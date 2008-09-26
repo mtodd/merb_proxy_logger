@@ -1,4 +1,4 @@
-module MerbProxyLogger
+class MerbProxyLogger
   
   # = Loggers
   # 

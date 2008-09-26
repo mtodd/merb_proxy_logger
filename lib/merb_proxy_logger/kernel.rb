@@ -1,4 +1,4 @@
-module MerbProxyLogger
+class MerbProxyLogger
   module Kernel
     
     # An alias for the MerbProxyLogger class method +setup+.
